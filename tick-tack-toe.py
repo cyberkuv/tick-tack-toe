@@ -1,3 +1,5 @@
+import os
+
 empt_board = {
     '1': ' ', '2': ' ', '3': ' ',
     '4': ' ', '5': ' ', '6': ' ',
@@ -10,7 +12,9 @@ for key in empt_board:
     board_keys.append(key)
 
 def opt_board(board):
-    print(board['1'] + '|' + board['2'] + '|' + board['3'])
+    clear = lambda: os.system('clear')
+    clear()
+    print('\u001b[32m'+board['1'] + '|' + board['2'] + '|' + board['3'])
     print('-*-*-')
     print(board['4'] + '|' + board['5'] + '|' + board['6'])
     print('-*-*-')
@@ -26,7 +30,7 @@ def tick_tack_toe():
         move = input()
 
         if empt_board[move] == ' ':
-            empt_board[move] = turn
+            empt_board[move] = '\u001b[31m'+turn
             count += 1
         else:
             print("Position Taken!. move?")
@@ -75,7 +79,7 @@ def tick_tack_toe():
                 break
 
         if turn == 'X':
-            turn = 'O'
+            turn = '\u001b[33m'+'O'
         else:
             turn = 'X'
         
